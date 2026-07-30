@@ -20,8 +20,9 @@ public class FileUploadService {
 
     public String upload(MultipartFile file) throws Exception {
 
-        String fileName =
-                UUID.randomUUID() + "_" + file.getOriginalFilename();
+//        String fileName =
+//                UUID.randomUUID() + "_" + file.getOriginalFilename();
+        String fileName = file.getOriginalFilename();
 
         minioClient.putObject(
                 PutObjectArgs.builder()
