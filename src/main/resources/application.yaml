@@ -1,10 +1,24 @@
 spring:
   application:
     name: fileuploader-attacker
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
   datasource:
     url: jdbc:mariadb://localhost:33306/erp
     username: root
     password: 1234
     driver-class-name: org.mariadb.jdbc.Driver
+
+minio:
+  endpoint: http://localhost:9000
+  access-key: admin
+  secret-key: password123
+  bucket: images
+
+
 server:
   port: 33000
