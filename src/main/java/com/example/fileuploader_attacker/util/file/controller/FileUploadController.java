@@ -41,7 +41,7 @@ public class FileUploadController {
 
 	private static final String UPLOAD_DIR = "./uploads/";
 
-	@PostMapping("/upload")
+	@PostMapping("/api/upload")
 	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) throws Exception {
 		try {
 			if (file.isEmpty()) {
