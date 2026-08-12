@@ -22,10 +22,12 @@ package com.example.fileuploader_attacker.util.file.controller;
 //    }
 //}
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -37,11 +39,37 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/api")
 public class FileUploadController {
 
 	private static final String UPLOAD_DIR = "./uploads/";
+    private final Path uploadPath = Paths.get("./uploads");
 
-	@PostMapping("/api/upload")
+
+    @GetMapping("/files/{fileName}/download")
+    public ResponseEntity<Resource> download(
+            @PathVariable String fileName
+    ) throws IOException {
+
+        Path filePath = uploadPath.resolve(fileName).normalize();
+
+        Resource resource = new UrlResource(filePath.toUri());
+
+        if (!resource.exists()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok()
+                .header(
+                        HttpHeaders.CONTENT_DISPOSITION,
+                        "attachment; filename=\"" + resource.getFilename() + "\""
+                )
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(resource);
+    }
+
+
+	@PostMapping("/upload")
 	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) throws Exception {
 		try {
 			if (file.isEmpty()) {
