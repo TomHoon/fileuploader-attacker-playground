@@ -16,3 +16,15 @@ minio:
 
 server:
   port: 33000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info,metrics,env,loggers
+  metrics:
+    tags:
+      application: test-api
+  endpoint:
+    health:
+      show-details: always

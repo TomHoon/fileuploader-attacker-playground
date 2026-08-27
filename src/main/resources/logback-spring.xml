@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- property 변수 -->
+
+    <!-- 저장위치 -->
+    <property name="LOG_DIR" value="./logs" />
+    <property name="LOG_FILE_NAME" value="tomhoon-api-log" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) [%X{requestId}] %cyan(%logger{36}) : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--    롤링방식-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/${LOG_FILE_NAME}.log</file>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%X{requestId}] %logger{36} : %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--            방식1: 저장파일명 패턴(분단위 까지)-->
+            <!--            <fileNamePattern>${LOG_DIR}/${LOG_FILE_NAME}-%d{yyyy-MM-dd_HH-mm}.log</fileNamePattern>-->
+            <!--            방식2: 저장파일명 패턴(일단위 까지)-->
+            <fileNamePattern>${LOG_DIR}/${LOG_FILE_NAME}-%d{yyyy-MM-dd_HH-mm}.log</fileNamePattern>
+            <!--            최대 저장기간-->
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>

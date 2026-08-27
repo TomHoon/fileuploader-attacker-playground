@@ -1,0 +1,69 @@
+2026-08-27 07:55:44 INFO  [] c.e.f.FileuploaderAttackerApplication : Starting FileuploaderAttackerApplication using Java 21.0.7 with PID 25148 (C:\Users\gnsdl\Downloads\fileuploader-attacker\build\classes\java\main started by gnsdl in C:\Users\gnsdl\Downloads\fileuploader-attacker)
+2026-08-27 07:55:44 INFO  [] c.e.f.FileuploaderAttackerApplication : No active profile set, falling back to 1 default profile: "default"
+2026-08-27 07:55:44 INFO  [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-27 07:55:44 INFO  [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-27 07:55:45 INFO  [] o.s.boot.tomcat.TomcatWebServer : Tomcat initialized with port 33000 (http)
+2026-08-27 07:55:45 INFO  [] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-33000"]
+2026-08-27 07:55:45 INFO  [] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-08-27 07:55:45 INFO  [] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-27 07:55:45 INFO  [] o.s.b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 954 ms
+2026-08-27 07:55:46 INFO  [] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-33000"]
+2026-08-27 07:55:46 INFO  [] o.s.boot.tomcat.TomcatWebServer : Tomcat started on port 33000 (http) with context path '/'
+2026-08-27 07:55:46 INFO  [] c.e.f.FileuploaderAttackerApplication : Started FileuploaderAttackerApplication in 2.074 seconds (process running for 2.542)
+2026-08-27 07:55:51 INFO  [] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-27 07:55:51 INFO  [] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-08-27 07:55:51 INFO  [] o.s.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+2026-08-27 07:55:51 INFO  [38532f5c-d49f-4c1c-9b96-780957b63ecb] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:51 WARN  [38532f5c-d49f-4c1c-9b96-780957b63ecb] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:51 ERROR [38532f5c-d49f-4c1c-9b96-780957b63ecb] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:56 INFO  [5f15969d-26a1-40d6-a4de-dc5701d04325] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:56 WARN  [5f15969d-26a1-40d6-a4de-dc5701d04325] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:56 ERROR [5f15969d-26a1-40d6-a4de-dc5701d04325] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:57 INFO  [3a9d3c31-5193-4cd4-bf30-9c1ca629a0a7] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:57 WARN  [3a9d3c31-5193-4cd4-bf30-9c1ca629a0a7] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:57 ERROR [3a9d3c31-5193-4cd4-bf30-9c1ca629a0a7] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:57 INFO  [c7867c87-f661-4a42-944d-b8a9c308e0ce] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:57 WARN  [c7867c87-f661-4a42-944d-b8a9c308e0ce] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:57 ERROR [c7867c87-f661-4a42-944d-b8a9c308e0ce] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:57 INFO  [628d7c10-87b7-4af4-a785-88177f105d19] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:57 WARN  [628d7c10-87b7-4af4-a785-88177f105d19] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:57 ERROR [628d7c10-87b7-4af4-a785-88177f105d19] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:57 INFO  [4532d09d-d618-468d-8203-5d8263df5250] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:57 WARN  [4532d09d-d618-468d-8203-5d8263df5250] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:57 ERROR [4532d09d-d618-468d-8203-5d8263df5250] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:57 INFO  [45096c3c-ae50-4153-a9c8-e2efd211027f] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:57 WARN  [45096c3c-ae50-4153-a9c8-e2efd211027f] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:57 ERROR [45096c3c-ae50-4153-a9c8-e2efd211027f] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:58 INFO  [5854b400-e16f-47be-b12e-c14cf19089d5] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:58 WARN  [5854b400-e16f-47be-b12e-c14cf19089d5] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:58 ERROR [5854b400-e16f-47be-b12e-c14cf19089d5] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:58 INFO  [ab73b6e2-f6e7-4384-b75a-121e8a6f483e] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:58 WARN  [ab73b6e2-f6e7-4384-b75a-121e8a6f483e] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:58 ERROR [ab73b6e2-f6e7-4384-b75a-121e8a6f483e] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:58 INFO  [10995f62-969e-4e9a-bfce-0558b3e26baf] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:58 WARN  [10995f62-969e-4e9a-bfce-0558b3e26baf] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:58 ERROR [10995f62-969e-4e9a-bfce-0558b3e26baf] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:58 INFO  [c3bf3b3d-5fc2-471c-934d-f16060a05408] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:58 WARN  [c3bf3b3d-5fc2-471c-934d-f16060a05408] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:58 ERROR [c3bf3b3d-5fc2-471c-934d-f16060a05408] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:58 INFO  [6ac514db-236c-4b97-8fc4-69a2bb27177a] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:58 WARN  [6ac514db-236c-4b97-8fc4-69a2bb27177a] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:58 ERROR [6ac514db-236c-4b97-8fc4-69a2bb27177a] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:58 INFO  [49df34d6-e14a-4ad8-823d-a6045beab233] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:58 WARN  [49df34d6-e14a-4ad8-823d-a6045beab233] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:58 ERROR [49df34d6-e14a-4ad8-823d-a6045beab233] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:59 INFO  [4b5fd42e-3529-4b6a-a504-44ff6f320720] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:59 WARN  [4b5fd42e-3529-4b6a-a504-44ff6f320720] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:59 ERROR [4b5fd42e-3529-4b6a-a504-44ff6f320720] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:59 INFO  [e70bc716-b33b-4bfb-8983-411fac212c55] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:59 WARN  [e70bc716-b33b-4bfb-8983-411fac212c55] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:59 ERROR [e70bc716-b33b-4bfb-8983-411fac212c55] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:59 INFO  [bb2d5e7f-d4e7-4388-9b40-2a102f2c2575] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:59 WARN  [bb2d5e7f-d4e7-4388-9b40-2a102f2c2575] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:59 ERROR [bb2d5e7f-d4e7-4388-9b40-2a102f2c2575] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:59 INFO  [e8b316ad-5e3a-46bc-b74c-1267f4dd2ac5] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:59 WARN  [e8b316ad-5e3a-46bc-b74c-1267f4dd2ac5] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:59 ERROR [e8b316ad-5e3a-46bc-b74c-1267f4dd2ac5] c.e.f.log.LogTestController : [ERROR] 에러
+2026-08-27 07:55:59 INFO  [0c38d0a0-efa8-4c46-9315-69ba0140a066] c.e.f.log.LogTestController : [INFO] 안내
+2026-08-27 07:55:59 WARN  [0c38d0a0-efa8-4c46-9315-69ba0140a066] c.e.f.log.LogTestController : [WARN] 위험
+2026-08-27 07:55:59 ERROR [0c38d0a0-efa8-4c46-9315-69ba0140a066] c.e.f.log.LogTestController : [ERROR] 에러

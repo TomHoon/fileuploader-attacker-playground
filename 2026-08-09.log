@@ -1,0 +1,270 @@
+2026-08-27 14:29:57.431  INFO 24103 --- [nio-8080-exec-3] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/products/332 userId=8172
+
+2026-08-27 14:29:57.453 DEBUG 24103 --- [nio-8080-exec-3] c.h.s.product.ProductService :
+findProduct productId=332
+
+2026-08-27 14:29:57.471 DEBUG 24103 --- [nio-8080-exec-3] c.h.s.product.ProductMapper :
+SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, STOCK_QTY
+FROM PRODUCT
+WHERE PRODUCT_ID = 332
+
+2026-08-27 14:29:57.489  INFO 24103 --- [nio-8080-exec-3] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/products/332 status=200 elapsed=58ms
+
+
+2026-08-27 14:30:02.112  INFO 24103 --- [nio-8080-exec-6] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/orders/ORD-20260827-10199 userId=5521
+
+2026-08-27 14:30:02.116 DEBUG 24103 --- [nio-8080-exec-6] c.h.s.order.OrderService :
+findOrder orderNo=ORD-20260827-10199
+
+2026-08-27 14:30:02.132 DEBUG 24103 --- [nio-8080-exec-6] c.h.s.order.OrderMapper :
+SELECT ORDER_NO, USER_ID, ORDER_STATUS, PAYMENT_STATUS
+FROM ORDERS
+WHERE ORDER_NO = 'ORD-20260827-10199'
+
+2026-08-27 14:30:02.153  INFO 24103 --- [nio-8080-exec-6] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/orders/ORD-20260827-10199 status=200 elapsed=41ms
+
+
+2026-08-27 14:30:14.831  INFO 24103 --- [nio-8080-exec-7] c.h.s.filter.RequestLogFilter :
+REQUEST POST /api/cart/items userId=9033
+
+2026-08-27 14:30:14.836 DEBUG 24103 --- [nio-8080-exec-7] c.h.s.cart.CartService :
+addItem userId=9033 productId=817 qty=2
+
+2026-08-27 14:30:14.841 DEBUG 24103 --- [nio-8080-exec-7] c.h.s.cart.CartMapper :
+INSERT INTO CART_ITEM(USER_ID, PRODUCT_ID, QTY)
+VALUES(9033, 817, 2)
+
+2026-08-27 14:30:14.855  INFO 24103 --- [nio-8080-exec-7] c.h.s.filter.RequestLogFilter :
+RESPONSE POST /api/cart/items status=200 elapsed=24ms
+
+
+2026-08-27 14:30:39.118  INFO 24103 --- [nio-8080-exec-2] c.h.s.filter.RequestLogFilter :
+REQUEST POST /api/payment/confirm userId=8172
+
+2026-08-27 14:30:39.119  INFO 24103 --- [nio-8080-exec-2] c.h.s.payment.PaymentController :
+paymentConfirm orderNo=ORD-20260827-10377 paymentKey=PAY_K82KM191
+
+2026-08-27 14:30:39.121 DEBUG 24103 --- [nio-8080-exec-2] c.h.s.payment.PaymentService :
+payment confirm start orderNo=ORD-20260827-10377 amount=39000
+
+2026-08-27 14:30:39.310  INFO 24103 --- [nio-8080-exec-2] c.h.s.payment.PgClient :
+PG confirm response status=200 paymentKey=PAY_K82KM191 amount=39000
+
+2026-08-27 14:30:39.313 DEBUG 24103 --- [nio-8080-exec-2] c.h.s.order.OrderMapper :
+UPDATE ORDERS
+SET PAYMENT_STATUS='PAID',
+    ORDER_STATUS='PREPARING',
+    PAID_AT=SYSDATE
+WHERE ORDER_NO='ORD-20260827-10377'
+
+2026-08-27 14:30:39.323 DEBUG 24103 --- [nio-8080-exec-2] c.h.s.order.OrderMapper :
+Updates: 1
+
+2026-08-27 14:30:39.331  INFO 24103 --- [nio-8080-exec-2] c.h.s.payment.PaymentService :
+payment confirm completed orderNo=ORD-20260827-10377
+
+2026-08-27 14:30:39.335  INFO 24103 --- [nio-8080-exec-2] c.h.s.filter.RequestLogFilter :
+RESPONSE POST /api/payment/confirm status=200 elapsed=217ms
+
+
+2026-08-27 14:30:52.771  INFO 24103 --- [nio-8080-exec-9] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/orders userId=4412
+
+2026-08-27 14:30:52.776 DEBUG 24103 --- [nio-8080-exec-9] c.h.s.order.OrderService :
+findOrders userId=4412 page=0 size=20
+
+2026-08-27 14:30:52.810  INFO 24103 --- [nio-8080-exec-9] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/orders status=200 elapsed=39ms
+
+
+2026-08-27 14:31:03.208  INFO 24103 --- [nio-8080-exec-4] c.h.s.filter.RequestLogFilter :
+REQUEST POST /api/payment/confirm userId=8821
+
+2026-08-27 14:31:03.209  INFO 24103 --- [nio-8080-exec-4] c.h.s.payment.PaymentController :
+paymentConfirm orderNo=ORD-20260827-10382 paymentKey=PAY_M91AA281
+
+2026-08-27 14:31:03.211 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.payment.PaymentService :
+payment confirm start orderNo=ORD-20260827-10382 amount=128000
+
+2026-08-27 14:31:03.213 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.order.OrderMapper :
+SELECT ORDER_STATUS, PAYMENT_STATUS, TOTAL_AMOUNT
+FROM ORDERS
+WHERE ORDER_NO='ORD-20260827-10382'
+
+2026-08-27 14:31:03.218 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.payment.PaymentService :
+order validation success orderNo=ORD-20260827-10382
+orderStatus=WAIT_PAYMENT paymentStatus=READY amount=128000
+
+2026-08-27 14:31:03.220  INFO 24103 --- [nio-8080-exec-4] c.h.s.payment.PgClient :
+PG confirm request paymentKey=PAY_M91AA281 orderNo=ORD-20260827-10382 amount=128000
+
+2026-08-27 14:31:03.487  INFO 24103 --- [nio-8080-exec-4] c.h.s.payment.PgClient :
+PG confirm response status=200 paymentKey=PAY_M91AA281
+pgStatus=DONE approvedAmount=128000
+
+2026-08-27 14:31:03.490 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.payment.PaymentService :
+PG payment success orderNo=ORD-20260827-10382
+
+2026-08-27 14:31:03.491 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.order.OrderMapper :
+UPDATE ORDERS
+SET PAYMENT_STATUS='PAID',
+    ORDER_STATUS='PREPARING',
+    PAID_AT=SYSDATE
+WHERE ORDER_NO='ORD-20260827-10382'
+AND PAYMENT_STATUS='READY'
+
+2026-08-27 14:31:03.496 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.order.OrderMapper :
+Updates: 1
+
+2026-08-27 14:31:03.498 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.inventory.InventoryService :
+decreaseStock start orderNo=ORD-20260827-10382
+
+2026-08-27 14:31:03.499 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.order.OrderItemMapper :
+SELECT PRODUCT_ID, QTY
+FROM ORDER_ITEM
+WHERE ORDER_NO='ORD-20260827-10382'
+
+2026-08-27 14:31:03.504 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.inventory.InventoryMapper :
+UPDATE PRODUCT
+SET STOCK_QTY = STOCK_QTY - 1
+WHERE PRODUCT_ID=718
+AND STOCK_QTY >= 1
+
+2026-08-27 14:31:03.509 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.inventory.InventoryMapper :
+Updates: 1
+
+2026-08-27 14:31:03.511 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.inventory.InventoryMapper :
+UPDATE PRODUCT
+SET STOCK_QTY = STOCK_QTY - 2
+WHERE PRODUCT_ID=991
+AND STOCK_QTY >= 2
+
+2026-08-27 14:31:03.515 DEBUG 24103 --- [nio-8080-exec-4] c.h.s.inventory.InventoryMapper :
+Updates: 0
+
+2026-08-27 14:31:03.517 ERROR 24103 --- [nio-8080-exec-4] c.h.s.inventory.InventoryService :
+stock decrease failed productId=991 requestedQty=2 orderNo=ORD-20260827-10382
+
+2026-08-27 14:31:03.518 ERROR 24103 --- [nio-8080-exec-4] c.h.s.payment.PaymentService :
+payment processing failed orderNo=ORD-20260827-10382
+
+com.hi.shop.exception.OutOfStockException: 상품 재고가 부족합니다. productId=991
+    at com.hi.shop.inventory.InventoryService.decreaseStock(InventoryService.java:88)
+    at com.hi.shop.payment.PaymentService.confirm(PaymentService.java:142)
+    at com.hi.shop.payment.PaymentController.confirm(PaymentController.java:61)
+    at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+
+2026-08-27 14:31:03.521 DEBUG 24103 --- [nio-8080-exec-4] o.s.jdbc.datasource.DataSourceTransactionManager :
+Initiating transaction rollback
+
+2026-08-27 14:31:03.524 DEBUG 24103 --- [nio-8080-exec-4] o.s.jdbc.datasource.DataSourceTransactionManager :
+Rolling back JDBC transaction
+
+2026-08-27 14:31:03.529  WARN 24103 --- [nio-8080-exec-4] c.h.s.exception.GlobalExceptionHandler :
+OutOfStockException orderNo=ORD-20260827-10382
+
+2026-08-27 14:31:03.531  INFO 24103 --- [nio-8080-exec-4] c.h.s.filter.RequestLogFilter :
+RESPONSE POST /api/payment/confirm status=409 elapsed=323ms
+
+
+2026-08-27 14:31:08.214  INFO 24103 --- [nio-8080-exec-1] c.h.s.filter.RequestLogFilter :
+REQUEST POST /api/payment/confirm userId=2217
+
+2026-08-27 14:31:08.215  INFO 24103 --- [nio-8080-exec-1] c.h.s.payment.PaymentController :
+paymentConfirm orderNo=ORD-20260827-10384 paymentKey=PAY_BB182A11
+
+2026-08-27 14:31:08.432  INFO 24103 --- [nio-8080-exec-1] c.h.s.payment.PgClient :
+PG confirm response status=200 paymentKey=PAY_BB182A11
+
+2026-08-27 14:31:08.446 DEBUG 24103 --- [nio-8080-exec-1] c.h.s.order.OrderMapper :
+Updates: 1
+
+2026-08-27 14:31:08.449  INFO 24103 --- [nio-8080-exec-1] c.h.s.payment.PaymentService :
+payment confirm completed orderNo=ORD-20260827-10384
+
+2026-08-27 14:31:08.452  INFO 24103 --- [nio-8080-exec-1] c.h.s.filter.RequestLogFilter :
+RESPONSE POST /api/payment/confirm status=200 elapsed=238ms
+
+
+2026-08-27 14:31:11.732  INFO 24103 --- [nio-8080-exec-8] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/orders/ORD-20260827-10382 userId=8821
+
+2026-08-27 14:31:11.734 DEBUG 24103 --- [nio-8080-exec-8] c.h.s.order.OrderMapper :
+SELECT ORDER_NO, ORDER_STATUS, PAYMENT_STATUS, PAID_AT
+FROM ORDERS
+WHERE ORDER_NO='ORD-20260827-10382'
+
+2026-08-27 14:31:11.739 DEBUG 24103 --- [nio-8080-exec-8] c.h.s.order.OrderService :
+order result orderNo=ORD-20260827-10382
+orderStatus=WAIT_PAYMENT paymentStatus=READY paidAt=null
+
+2026-08-27 14:31:11.742  INFO 24103 --- [nio-8080-exec-8] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/orders/ORD-20260827-10382 status=200 elapsed=10ms
+
+
+2026-08-27 14:31:18.911  INFO 24103 --- [nio-8080-exec-3] c.h.s.filter.RequestLogFilter :
+REQUEST POST /api/auth/refresh userId=4412
+
+2026-08-27 14:31:18.927  INFO 24103 --- [nio-8080-exec-3] c.h.s.auth.AuthService :
+access token refreshed userId=4412
+
+2026-08-27 14:31:18.931  INFO 24103 --- [nio-8080-exec-3] c.h.s.filter.RequestLogFilter :
+RESPONSE POST /api/auth/refresh status=200 elapsed=20ms
+
+
+2026-08-27 14:31:27.552  INFO 24103 --- [nio-8080-exec-5] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/products/991 userId=1932
+
+2026-08-27 14:31:27.557 DEBUG 24103 --- [nio-8080-exec-5] c.h.s.product.ProductMapper :
+SELECT PRODUCT_ID, PRODUCT_NAME, STOCK_QTY
+FROM PRODUCT
+WHERE PRODUCT_ID=991
+
+2026-08-27 14:31:27.562 DEBUG 24103 --- [nio-8080-exec-5] c.h.s.product.ProductService :
+productId=991 stockQty=1
+
+2026-08-27 14:31:27.565  INFO 24103 --- [nio-8080-exec-5] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/products/991 status=200 elapsed=13ms
+
+
+2026-08-27 14:31:42.110  INFO 24103 --- [nio-8080-exec-6] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/orders/ORD-20260827-10377 userId=8172
+
+2026-08-27 14:31:42.128  INFO 24103 --- [nio-8080-exec-6] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/orders/ORD-20260827-10377 status=200 elapsed=18ms
+
+
+2026-08-27 14:32:01.331  INFO 24103 --- [scheduler-1] c.h.s.batch.PaymentReconciliationJob :
+payment reconciliation job start
+
+2026-08-27 14:32:01.389 DEBUG 24103 --- [scheduler-1] c.h.s.payment.PaymentMapper :
+SELECT PAYMENT_KEY, ORDER_NO
+FROM PAYMENT_HISTORY
+WHERE PAYMENT_STATUS='PAID'
+AND ORDER_STATUS='WAIT_PAYMENT'
+
+2026-08-27 14:32:01.394  INFO 24103 --- [scheduler-1] c.h.s.batch.PaymentReconciliationJob :
+target count=0
+
+2026-08-27 14:32:01.396  INFO 24103 --- [scheduler-1] c.h.s.batch.PaymentReconciliationJob :
+payment reconciliation job completed
+
+
+2026-08-27 14:32:13.944  WARN 24103 --- [nio-8080-exec-7] c.h.s.monitor.SlowQueryLogger :
+slow query elapsed=2134ms mapper=OrderMapper.findOrderHistory
+
+2026-08-27 14:32:19.137 ERROR 24103 --- [nio-8080-exec-2] c.h.s.delivery.DeliveryClient :
+delivery API timeout orderNo=ORD-20260827-10371
+
+java.net.SocketTimeoutException: Read timed out
+
+2026-08-27 14:32:21.441  INFO 24103 --- [nio-8080-exec-9] c.h.s.filter.RequestLogFilter :
+REQUEST GET /api/cart userId=8821
+
+2026-08-27 14:32:21.459  INFO 24103 --- [nio-8080-exec-9] c.h.s.filter.RequestLogFilter :
+RESPONSE GET /api/cart status=200 elapsed=18ms
